@@ -1,7 +1,7 @@
 import { GET_TRACKS } from "../actions";
 
 const initialState = {
-    content: []
+    tracks: []
 }
 
 const tracksReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const tracksReducer = (state = initialState, action) => {
         case GET_TRACKS:
             return {
                 ...state,
-                content: action.payload
+                tracks: action.payload
             }
         default:
             return state

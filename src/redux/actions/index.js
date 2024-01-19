@@ -46,14 +46,23 @@ export const getAlbumsFromSearchAction = (query) => {
 export const getTracksAction = (albumId) => {
     return async (dispatch) => {
         try {
+            // `https://api.deezer.com/album/${albumId}/tracks` // cors errors
             const response = await fetch(
-                `https://api.deezer.com/album/${albumId}/tracks`
+                `https://deezerdevs-deezer.p.rapidapi.com/album/${albumId}`,
+                {
+                    headers: {
+                        'X-RapidAPI-Key': '349d0315bamshe22fa1098ac0240p133261jsnab757b4a040e',
+                        'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+                    }
+                }
             )
             if (response.ok) {
-                const { data } = await response.json()
+                console.log(response)
+                const data = await response.json()
+                console.log(data)
                 dispatch({
                     type: GET_TRACKS,
-                    payload: data,
+                    payload: data
                 })
             }
         } catch (error) {
@@ -83,3 +92,4 @@ export const setSearchStatusAction = (status) => {
         payload: status
     }
 }
+
