@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
+import MySidebar from './components/MySidebar';
+import MyTopbar from './components/MyTopbar';
+import Player from './components/Player';
+import HomepageAlbums from './components/HomepageAlbums';
+import SearchAlbums from './components/SearchAlbums';
+import TrackListPage from './components/TrackListPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Container fluid>
+        <Row>
+          <Col lg={2} className='p-0' >
+            <MySidebar />
+          </Col>
+          <Col lg={10} className='p-0' style={{ backgroundColor: '#1E2636' }}>
+            <MyTopbar />
+            <Routes>
+              <Route path='/' element={<HomepageAlbums />} />
+              <Route path='/album/:id' element={<TrackListPage />} />
+            </Routes>
+
+          </Col>
+          <Player />
+        </Row>
+      </Container>
+    </BrowserRouter>
   );
 }
 

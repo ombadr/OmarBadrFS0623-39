@@ -1,0 +1,17 @@
+.sticky-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-1 {
+  flex: 8;
+}
+
+.sidebar-2 {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
