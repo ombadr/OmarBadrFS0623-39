@@ -1,14 +1,27 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
-const TrackList = ({ data }) => {
-  const tracks = data.tracks.tracks.data;
-  console.log('Tracks', tracks);
+const TrackList = () => {
+  // const tracks = data.tracks.tracks.data;
+  // console.log('Tracks', tracks);
+
+  const tracks = useSelector((state) => state.tracks);
+
+  if (!tracks) {
+    return <div>Loading...</div>;
+  }
+
+  const trackListData = tracks.tracks.tracks;
+  console.log('Tracklist data', trackListData);
+
+  console.log('track list', tracks);
+
   return (
     <Container>
       <Row>
         {tracks &&
-          tracks.map((track, index) => {
+          trackListData?.data.map((track, index) => {
             return (
               <Col lg={12} key={index}>
                 <div className='d-flex'>

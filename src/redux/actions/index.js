@@ -45,9 +45,10 @@ export const getAlbumsFromSearchAction = (query) => {
 
 export const getTracksAction = (albumId) => {
     return async (dispatch) => {
+
         try {
-            // `https://api.deezer.com/album/${albumId}/tracks` // cors errors
             const response = await fetch(
+                // `https://api.deezer.com/album/${albumId}/tracks`
                 `https://deezerdevs-deezer.p.rapidapi.com/album/${albumId}`,
                 {
                     headers: {
@@ -59,7 +60,7 @@ export const getTracksAction = (albumId) => {
             if (response.ok) {
                 console.log(response)
                 const data = await response.json()
-                console.log(data)
+                console.log('get tracks action', data)
                 dispatch({
                     type: GET_TRACKS,
                     payload: data
@@ -67,6 +68,7 @@ export const getTracksAction = (albumId) => {
             }
         } catch (error) {
             console.log(error)
+
         }
     }
 }

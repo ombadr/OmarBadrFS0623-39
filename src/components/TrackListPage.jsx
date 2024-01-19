@@ -13,9 +13,12 @@ const TrackListPage = () => {
 
   useEffect(() => {
     dispatch(getTracksAction(id));
-  }, [id]);
+    console.log('TrackListPage', trackList);
+  }, [id, dispatch]);
 
-  console.log(trackList);
+  console.log('id', id);
+
+  console.log('TracklistPage', trackList);
 
   return (
     <Container className='text-light mt-5 p-5'>
@@ -24,7 +27,7 @@ const TrackListPage = () => {
           <TrackCard />
         </Col>
         <Col lg={8}>
-          <TrackList data={trackList} />
+          <TrackList />
         </Col>
       </Row>
     </Container>

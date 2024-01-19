@@ -22,7 +22,6 @@ function App() {
               <Route path='/' element={<HomepageAlbums />} />
               <Route path='/album/:id' element={<TrackListPage />} />
             </Routes>
-
           </Col>
           <Player />
         </Row>

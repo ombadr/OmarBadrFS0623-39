@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAlbumsAction } from '../redux/actions';
 import AlbumCard from './AlbumCard';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const HomepageAlbums = () => {
   const { albums } = useSelector((state) => state.albums);
