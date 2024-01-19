@@ -17,6 +17,12 @@ const TrackList = () => {
 
   console.log('track list', tracks);
 
+  const formatDuration = (duration) => {
+    const minutes = Math.floor(duration / 60);
+    const seconds = duration % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
   return (
     <Container>
       <Row>
@@ -26,7 +32,9 @@ const TrackList = () => {
               <Col lg={12} key={index}>
                 <div className='d-flex'>
                   <p className='flex-grow-1 col-10 fs-5'>{track.title}</p>
-                  <p className='flex-grow-1 col-2 fs-5'>{track.duration}</p>
+                  <p className='flex-grow-1 col-2 fs-5'>
+                    {formatDuration(track.duration)}
+                  </p>
                 </div>
               </Col>
             );

@@ -53,7 +53,12 @@ const HomepageAlbums = () => {
               {albums &&
                 albums['The Doors'].map((album, index) => (
                   <Col key={index} lg={3}>
-                    <AlbumCard data={album} />
+                    <Link
+                      to={`/album/${album.album.id}`}
+                      className='text-decoration-none text-light'
+                    >
+                      <AlbumCard data={album} />
+                    </Link>
                   </Col>
                 ))}
             </Row>
@@ -64,7 +69,12 @@ const HomepageAlbums = () => {
               {albums &&
                 albums['50 cent'].map((album, index) => (
                   <Col key={index} lg={3}>
-                    <AlbumCard data={album} />
+                    <Link
+                      to={`/album/${album.album.id}`}
+                      className='text-decoration-none text-light'
+                    >
+                      <AlbumCard data={album} />
+                    </Link>
                   </Col>
                 ))}
             </Row>
@@ -75,7 +85,12 @@ const HomepageAlbums = () => {
               {albums &&
                 albums['Coldplay'].map((album, index) => (
                   <Col key={index} lg={3}>
-                    <AlbumCard data={album} />
+                    <Link
+                      to={`/album/${album.album.id}`}
+                      className='text-decoration-none text-light'
+                    >
+                      <AlbumCard data={album} />
+                    </Link>
                   </Col>
                 ))}
             </Row>
