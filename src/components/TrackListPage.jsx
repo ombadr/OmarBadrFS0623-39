@@ -24,7 +24,7 @@ const TrackListPage = () => {
           <TrackCard />
         </Col>
         <Col lg={8}>
-          <TrackList />
+          <TrackList data={trackList} />
         </Col>
       </Row>
     </Container>
