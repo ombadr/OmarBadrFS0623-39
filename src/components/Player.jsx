@@ -8,13 +8,34 @@ import { IoPlaySharp } from 'react-icons/io5';
 import { AiFillSound } from 'react-icons/ai';
 import { FaHeart } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { addFavoriteAction, removeFavoriteAction } from '../redux/actions';
+import { useDispatch } from 'react-redux';
 
 const Player = () => {
+  const dispatch = useDispatch();
   const player = useSelector((state) => state.player);
+  const favorites = useSelector((state) => state.favorites.content);
+  const currentTrack = player.player[0];
   console.log('From player: ', player);
   const image = player.player[0]?.track.album.cover_big;
   const title = player.player[0]?.track.title;
+
   console.log('image', image);
+
+  const isFavorite = favorites.some(
+    (item) => item.track.id === currentTrack?.track.id
+  );
+
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFavoriteAction(currentTrack));
+    } else {
+      dispatch(addFavoriteAction(currentTrack));
+    }
+  };
+
+  console.log('isFavorite', isFavorite);
+
   return (
     <Container fluid className='player-bg text-light p-0 m-0 fixed-bottom'>
       {image ? (
@@ -48,7 +69,10 @@ const Player = () => {
             </div>
           </Col>
           <Col lg={1} className='align-self-center'>
-            <FaHeart className='fs-3' />
+            <FaHeart
+              className={`fs-3 ${isFavorite ? 'text-success' : 'text-light'}`}
+              onClick={() => toggleFavorite()}
+            />
           </Col>
         </Row>
       ) : (
