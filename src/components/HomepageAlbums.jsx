@@ -16,7 +16,6 @@ const HomepageAlbums = () => {
   const [albumsLoaded, setAlbumsLoaded] = useState(false);
 
   const isSearch = useSelector((state) => state.searchStatus.isSearch);
-  console.log(isSearch);
 
   useEffect(() => {
     const fetchAlbums = async () => {
@@ -36,12 +35,6 @@ const HomepageAlbums = () => {
 
     fetchAlbums();
   }, []);
-
-  useEffect(() => {
-    if (albumsLoaded) {
-      console.log('Albums:', albums);
-    }
-  }, [albumsLoaded, albums]);
 
   return (
     <div style={{ marginBottom: '100px' }}>

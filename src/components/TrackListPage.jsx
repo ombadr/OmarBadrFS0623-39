@@ -13,12 +13,7 @@ const TrackListPage = () => {
 
   useEffect(() => {
     dispatch(getTracksAction(id));
-    console.log('TrackListPage', trackList);
   }, [id, dispatch]);
-
-  console.log('id', id);
-
-  console.log('TracklistPage', trackList);
 
   return (
     <Container

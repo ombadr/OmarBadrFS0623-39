@@ -4,9 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToPlayerAction } from '../redux/actions';
 
 const TrackList = () => {
-  // const tracks = data.tracks.tracks.data;
-  // console.log('Tracks', tracks);
-
   const tracks = useSelector((state) => state.tracks);
   const playerData = useSelector((state) => state.player);
   const dispatch = useDispatch();
@@ -16,9 +13,6 @@ const TrackList = () => {
   }
 
   const trackListData = tracks.tracks.tracks;
-  console.log('Tracklist data', trackListData);
-
-  console.log('track list', tracks);
 
   const formatDuration = (duration) => {
     const minutes = Math.floor(duration / 60);
@@ -29,8 +23,6 @@ const TrackList = () => {
   const handleClick = (track, index) => {
     dispatch(addToPlayerAction(track, index));
   };
-
-  console.log('Player data: ', playerData);
 
   return (
     <Container>

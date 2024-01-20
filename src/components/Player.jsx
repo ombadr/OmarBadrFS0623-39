@@ -16,11 +16,8 @@ const Player = () => {
   const player = useSelector((state) => state.player);
   const favorites = useSelector((state) => state.favorites.content);
   const currentTrack = player.player[0];
-  console.log('From player: ', player);
   const image = player.player[0]?.track.album.cover_big;
   const title = player.player[0]?.track.title;
-
-  console.log('image', image);
 
   const isFavorite = favorites.some(
     (item) => item.track.id === currentTrack?.track.id
@@ -33,8 +30,6 @@ const Player = () => {
       dispatch(addFavoriteAction(currentTrack));
     }
   };
-
-  console.log('isFavorite', isFavorite);
 
   return (
     <Container fluid className='player-bg text-light p-0 m-0 fixed-bottom'>

@@ -12,7 +12,6 @@ const SearchAlbums = () => {
   if (!albums.searchAlbums || !albums.searchAlbums.search) {
     return null;
   }
-  console.log(albums.searchAlbums.search);
 
   const handleClick = () => {
     dispatch(getTracksAction(albums.searchAlbums.search[0].album.id));

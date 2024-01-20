@@ -59,9 +59,7 @@ export const getTracksAction = (albumId) => {
                 }
             )
             if (response.ok) {
-                console.log(response)
                 const data = await response.json()
-                console.log('get tracks action', data)
                 dispatch({
                     type: GET_TRACKS,
                     payload: data

@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 const AlbumContainer = () => {
   const albums = useSelector((state) => state.albums);
-  console.log(albums);
 
   return (
     <Container className='text-light mt-5'>

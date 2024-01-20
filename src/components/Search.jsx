@@ -19,10 +19,7 @@ const Search = () => {
     dispatch(setSearchStatusAction(true));
 
     setSearchQuery('');
-    console.log(albums);
   };
-
-  console.log('Albums:', albums);
 
   return (
     <InputGroup className='mb-3 p-4'>
