@@ -5,7 +5,6 @@ import MySidebar from './components/MySidebar';
 import MyTopbar from './components/MyTopbar';
 import Player from './components/Player';
 import HomepageAlbums from './components/HomepageAlbums';
-import SearchAlbums from './components/SearchAlbums';
 import TrackListPage from './components/TrackListPage';
 
 function App() {

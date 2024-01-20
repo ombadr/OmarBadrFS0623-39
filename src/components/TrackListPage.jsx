@@ -21,7 +21,10 @@ const TrackListPage = () => {
   console.log('TracklistPage', trackList);
 
   return (
-    <Container className='text-light mt-5 p-5'>
+    <Container
+      className='text-light mt-5 p-5'
+      style={{ marginBottom: '100px' }}
+    >
       <Row>
         <Col lg={4}>
           <TrackCard />

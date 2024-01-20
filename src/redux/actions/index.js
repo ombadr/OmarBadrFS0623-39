@@ -4,6 +4,7 @@ export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 export const SET_SEARCH_STATUS = 'SET_SEARCH_STATUS';
 export const GET_ALBUMS_FROM_SEARCH = 'GET_ALBUMS_FROM_SEARCH';
+export const ADD_TO_PLAYER = 'ADD_TO_PLAYER';
 
 const searchUrl = 'https://striveschool-api.herokuapp.com/api/deezer/search?q='
 
@@ -95,3 +96,9 @@ export const setSearchStatusAction = (status) => {
     }
 }
 
+export const addToPlayerAction = (track, index) => {
+    return {
+        type: ADD_TO_PLAYER,
+        payload: { track, index }
+    }
+}

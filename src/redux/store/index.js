@@ -4,6 +4,7 @@ import tracksReducer from "../reducers/tracks";
 import favoritesReducer from "../reducers/favorites";
 import searchStatusReducer from "../reducers/searchStatus";
 import searchAlbumsReducer from "../reducers/searchAlbums";
+import playerReducer from "../reducers/player";
 
 
 const bigReducer = combineReducers({
@@ -12,6 +13,7 @@ const bigReducer = combineReducers({
     favorites: favoritesReducer,
     searchStatus: searchStatusReducer,
     searchAlbums: searchAlbumsReducer,
+    player: playerReducer,
 })
 
 const store = configureStore({
