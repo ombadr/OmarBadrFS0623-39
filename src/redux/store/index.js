@@ -6,6 +6,13 @@ import searchStatusReducer from "../reducers/searchStatus";
 import searchAlbumsReducer from "../reducers/searchAlbums";
 import playerReducer from "../reducers/player";
 
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+    key: 'root',
+    storage,
+}
 
 const bigReducer = combineReducers({
     albums: albumsReducer,
@@ -16,8 +23,11 @@ const bigReducer = combineReducers({
     player: playerReducer,
 })
 
+const persistedReducer = persistReducer(persistConfig, bigReducer)
+
 const store = configureStore({
-    reducer: bigReducer,
+    reducer: persistedReducer,
 })
 
+export const persistor = persistStore(store)
 export default store
